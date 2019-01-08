@@ -1,28 +1,49 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Routes from './Routes';
+import { Link } from 'react-router-dom'
+import { Layout, Menu, Icon } from 'antd';
+const { Sider, Content } = Layout;
+
+
+
+const SubMenu = Menu.SubMenu;
+const MenuItemGroup = Menu.ItemGroup;
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <Layout style={{ height: '100vh' }}>
+          <Sider style={{ overflowY: 'scroll' }}>
+            <Menu
+              defaultSelectedKeys={['1']}
+              defaultOpenKeys={['sub1']}
+              style={{ height: '100vh' }}
+              mode="inline"
+            >
+              <SubMenu key="sub1" title={<span>SHIFT </span>}>
+                <MenuItemGroup key="g1" >
+                  {/* <Menu.Item key="1"><Link to='/'>Welcome Page</Link></Menu.Item> */}
+                  <Menu.Item key="1"><Link to='/login'>Login</Link></Menu.Item>
+                  <Menu.Item key="2"><Link to='/signup'>Signup</Link></Menu.Item>
+                  {/* <Menu.Item key="3"><Link to='/profile'>Profile</Link></Menu.Item> */}
+                </MenuItemGroup>
+              </SubMenu>
+
+              <Menu.Item key="3"><Link to='/recarga'>Recarga</Link></Menu.Item>
+              <Menu.Item key="4"><Link to='/envia'>Envia</Link></Menu.Item>
+              <Menu.Item key="5"><Link to='/retira'>Retira</Link></Menu.Item>
+
+            </Menu>
+          </Sider>
+          <Layout>
+            <Content><Routes /></Content>
+          </Layout>
+        </Layout>
       </div>
     );
   }
 }
 
-export default App;
+export default App
