@@ -39,16 +39,21 @@ export default class Profile extends Component {
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <Card
                             style={{ width: 500, margin: 8 }}
-                            //cover={<img alt="example" src="" />}
+                 
+                            cover={ <Avatar shape="square" size={64} icon="user" /> }
+                
                         >
-                          
-                            <h1>Saldo: {loggedUser.saldo} </h1> 
-                            <h2> <Avatar style={{ backgroundColor: '#87d068' }} icon="user" /> {loggedUser.email} </h2>
-                          
-                         
+                          <div style={{ textAlign:"center"}}>
+                            <h1>{loggedUser.saldo}  {loggedUser.bank.currency}</h1> 
+                            <h2> {loggedUser.bank.name} </h2>
+                            <p>{loggedUser.email}</p>
+                            <p>{loggedUser.bank.country}</p>
+                            <span>{loggedUser.usertype}</span>
+                            
                             <div style={{ margin: 5, padding: 5 }}>
-                                <Button type="danger"  block>Añadir Cuenta Bancaria</Button>
+                                <Button type="danger"  block> <Link to={`/profile/edit/${loggedUser._id}`}>Editar Cuenta </Link></Button>
                                 <Button type="danger" onClick={this.getLoggedOut} block>Logout</Button>
+                            </div>
                             </div>
                         </Card>
                     </div>

@@ -15,15 +15,6 @@ export const signupUser = (user) => {
         .catch(e => e.response)
 }
 
-export const getProfile = () => {
-    return axios.get(urlBack + '/profile', { withCredentials: true })
-        .then(r => r.data)
-        .catch(e => {
-            return e.response
-
-        })
-}
-
 export const logOut = () => {
     return axios.get(urlBack + '/logout', { withCredentials: true })
         .then(r => r.data)
@@ -32,3 +23,20 @@ export const logOut = () => {
 
         })
 }
+
+export const getProfile = id => {
+    return axios.get(urlBack + '/profile/' + id, { withCredentials: true })
+        .then(r => r.data)
+        .catch(e => {
+            return e.response
+
+        })
+}
+
+export const updateProfile = user => {
+    return axios.put(urlBack + "/profile/edit/" + user._id, { withCredentials: true })
+      .then(r => r.data)
+      .catch(e => e.response);
+  };
+  
+

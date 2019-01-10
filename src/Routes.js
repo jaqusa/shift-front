@@ -6,6 +6,7 @@ import Profile from './components/home/Profile';
 import Envia from './components/home/Envia';
 import Recarga from './components/home/Recarga';
 import Retira from './components/home/Retira';
+import editProfile from './components/auth/EditProfile';
 
 const Routes = () => (
     <Switch>
@@ -16,6 +17,7 @@ const Routes = () => (
         <Route path="/envia" component={Envia} />
         <Route path="/recarga" component={Recarga} />
         <Route path="/retira" component={Retira} />
+        <Route exact path="/profile/edit/:id" component={editProfile} />
     </Switch>
 )
 

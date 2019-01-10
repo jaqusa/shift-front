@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import banner from '../../img/javierbanner-01.png'
 import { width } from 'window-size';
 import { Card} from 'antd';
 
