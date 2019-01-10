@@ -19,7 +19,6 @@ export const getProfile = () => {
     return axios.get(urlBack + '/profile', { withCredentials: true })
         .then(r => r.data)
         .catch(e => {
-            console.log(e)
             return e.response
 
         })
@@ -29,7 +28,6 @@ export const logOut = () => {
     return axios.get(urlBack + '/logout', { withCredentials: true })
         .then(r => r.data)
         .catch(e => {
-            console.log(e)
             return e.response
 
         })

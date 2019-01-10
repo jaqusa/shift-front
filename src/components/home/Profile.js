@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { getProfile, logOut } from '../../services/Api';
-import { Card, Button } from 'antd';
+import { Card, Button,Avatar } from 'antd';
 import { Link } from 'react-router-dom'
 
 const { Meta } = Card;
@@ -15,7 +15,6 @@ export default class Profile extends Component {
         getProfile()
             .then(user => {
                 this.setState({user})
-                console.log(user)
             }).catch(error => {
                 console.log(error)
             })
@@ -42,17 +41,13 @@ export default class Profile extends Component {
                             style={{ width: 500, margin: 8 }}
                             //cover={<img alt="example" src="" />}
                         >
-                            <Meta
-                                title={loggedUser.email}
-                                
-                            />
-                           
-                            <p>{user.email}</p> 
-                            <span>Saldo Actual:{loggedUser.saldo} </span> 
+                          
+                            <h1>Saldo: {loggedUser.saldo} </h1> 
+                            <h2> <Avatar style={{ backgroundColor: '#87d068' }} icon="user" /> {loggedUser.email} </h2>
+                          
+                         
                             <div style={{ margin: 5, padding: 5 }}>
-                                <Button type="danger"  block>Recargar</Button>
-                                <Button type="danger"  block>Enviar</Button>
-                                <Button type="danger"  block>Retirar</Button>
+                                <Button type="danger"  block>Añadir Cuenta Bancaria</Button>
                                 <Button type="danger" onClick={this.getLoggedOut} block>Logout</Button>
                             </div>
                         </Card>
@@ -62,3 +57,4 @@ export default class Profile extends Component {
         )
     }
 }
+

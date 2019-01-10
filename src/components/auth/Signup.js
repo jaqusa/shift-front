@@ -4,7 +4,7 @@ import { Form,Select,Icon, Input, Button } from 'antd'
 const FormItem = Form.Item;
 const { Option } = Select;
 
-const Signup = ({ handleInput, handleSignup }) => {
+const Signup = ({ handleInput, handleSignup, handleSelect }) => {
     return (
         <Fragment>
             <div>
@@ -23,9 +23,9 @@ const Signup = ({ handleInput, handleSignup }) => {
                         <Form.Item>
 
                             <Select
-                             name="usertype"
+                              name="usertype"
                               placeholder="Type of account "
-                              //onChange={this.handleSelectChange}
+                              onChange={handleSelect}
                             >
                               <Option value="user">User</Option>
                               <Option value="agent">Agent</Option>

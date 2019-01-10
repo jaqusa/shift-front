@@ -14,9 +14,11 @@ class AuthComponent extends Component {
         e.preventDefault()
         signupUser(user)
             .then(r => {
+
                 toastr.success('Registered')
                 this.props.history.push('/login')
             }).catch(e => {
+              
                 toastr.error(e)
             })
     }
@@ -27,10 +29,13 @@ class AuthComponent extends Component {
 
         loginUser(user)
             .then(r => {
-                localStorage.setItem('loggedUser', JSON.stringify(r))
-                toastr.success('Login Success')
-                this.props.history.push('/profile')
-
+                if(r.status>300){
+                  toastr.error(r.data.message)
+                }else{
+                  localStorage.setItem('loggedUser', JSON.stringify(r))
+                  toastr.success('Login Success')
+                  this.props.history.push('/profile')
+                }                
             }).catch(e => {
                 toastr.error(e)
             })
@@ -40,15 +45,20 @@ class AuthComponent extends Component {
         user[e.target.name] = e.target.value
         this.setState({ user })
     }
+    handleSelect=(value)=>{
+      const { user } = this.state
+        user["usertype"] = value
+        this.setState({ user })
+    }
 
     render() {
         const { pathname } = this.props.location
-        const { handleInput, handleSignup, handleLogin } = this
+        const { handleInput, handleSignup, handleLogin, handleSelect } = this
         return (
             <div className="d-flex" style={{ height: '100vh' }}>
                 {pathname === '/login' ?
                     <Login handleInput={handleInput} handleLogin={handleLogin} /> :
-                    <Signup handleInput={handleInput} handleSignup={handleSignup} />
+                    <Signup handleInput={handleInput} handleSignup={handleSignup} handleSelect={handleSelect}/>
                 }
             </div>
         )

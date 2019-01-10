@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Routes from './Routes';
+import './App.css';
 import { Link } from 'react-router-dom'
 import { Layout, Menu, Icon } from 'antd';
 const { Sider, Content } = Layout;
@@ -22,7 +23,7 @@ class App extends Component {
               style={{ height: '100vh' }}
               mode="inline"
             >
-              <SubMenu key="sub1" title={<span>SHIFT </span>}>
+              <SubMenu key="sub1" title={<span> <Link style={{textDecoration:"none"}} to='/'>SHIFT</Link> </span>}>
                 <MenuItemGroup key="g1" >
                   {/* <Menu.Item key="1"><Link to='/'>Welcome Page</Link></Menu.Item> */}
                   <Menu.Item key="1"><Link to='/login'>Login</Link></Menu.Item>
