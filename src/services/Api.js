@@ -1,6 +1,6 @@
 import axios from 'axios'
 //const urlBack = 'http://localhost:3000/api'
-const urlBack = 'https://shiftjaqusaapp.herokuapp.com//api'
+const urlBack = 'https://shiftjaqusaapp.herokuapp.com/api'
 
 
 export const loginUser = (user) => {
