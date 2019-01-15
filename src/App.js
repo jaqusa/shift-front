@@ -18,7 +18,7 @@ class App extends Component {
         <Layout style={{ height: '100vh' }}>
           <Sider style={{ overflowY: 'scroll' }}>
             <Menu
-              defaultSelectedKeys={['1']}
+              defaultSelectedKeys={['sub1']}
               defaultOpenKeys={['sub1']}
               style={{ height: '100vh' }}
               mode="inline"
@@ -31,10 +31,6 @@ class App extends Component {
                   {/* <Menu.Item key="3"><Link to='/profile'>Profile</Link></Menu.Item> */}
                 </MenuItemGroup>
               </SubMenu>
-
-              <Menu.Item key="3"><Link to='/recarga'>Recarga</Link></Menu.Item>
-              <Menu.Item key="4"><Link to='/envia'>Envia</Link></Menu.Item>
-              <Menu.Item key="5"><Link to='/retira'>Retira</Link></Menu.Item>
 
             </Menu>
           </Sider>

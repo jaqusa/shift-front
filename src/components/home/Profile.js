@@ -51,6 +51,10 @@ export default class Profile extends Component {
                             <span>{loggedUser.usertype}</span>
                             
                             <div style={{ margin: 5, padding: 5 }}>
+
+                                    <Button type="danger" ><Link to='/recarga'>Recarga</Link></Button>
+                                    <Button type="danger"><Link to='/envia'>Envia</Link></Button>
+                                    <Button type="danger"><Link to='/retira'>Retira</Link></Button>
                                 <Button type="danger"  block> <Link to={`/profile/edit/${loggedUser._id}`}>Editar Cuenta </Link></Button>
                                 <Button type="danger" onClick={this.getLoggedOut} block>Logout</Button>
                             </div>
